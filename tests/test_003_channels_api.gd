@@ -1,4 +1,4 @@
-extends GutTest
+extends AutoworkTest
 
 var secrets = {}
 
@@ -45,7 +45,7 @@ func test_004_fetch_channels_api():
 	
 	while time_waited < 5.0 and not signal_state[0]:
 		KickAPI.poll()
-		await get_tree().create_timer(0.05).timeout
+		OS.delay_msec(50)
 		time_waited += 0.05
 		
 	KickAPI.request_completed.disconnect(cb)
